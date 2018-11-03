@@ -1,67 +1,80 @@
-<html>
-<head>
-   <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-<body>
-<header id="header">
-    <h1>Shadan</h1>
-    <p>by TEMPLATED</p>
-    </header>
-    <section id="sectionimg">
-    <img src="images/pic02.jpg"> 
-        <article id="sectioncolor">
-            <h1>Shadan Khan Tellus</h1>
-            <hr style="width:10%">
-            <p>Do Something New..</p>
-            
-    </article>
-        <article id="sectionheading">
-        <p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel. Vestibulum et efficitur urna. Duis velit nulla, interdum sed felis sit amet, facilisis auctor nunc. Cras luctus urna at risus feugiat scelerisque nec sed diam.
-<br>
-<br>    
-Nunc fringilla metus odio, at rutrum augue tristique vel. Nulla ac tellus a neque ullamcorper porta a vitae ipsum. Morbi est sapien, hendrerit quis mi in, aliquam bibendum orci. Vestibulum imperdiet nibh vitae maximus posuere. Aenean sit amet nibh feugiat, condimentum tellus eu, malesuada nunc. Mauris ac pulvinar turpis, sit amet pharetra est. Ut bibendum justo condimentum, vehicula ex vel, venenatis libero. Etiam vehicula urna sed justo bibendum, ac lacinia nunc pulvinar. Integer nec velit orci. Vestibulum pellentesque varius dapibus. Morbi ullamcorper augue est, sed luctus orci fermentum dictum. Nunc tincidunt, nisl consequat convallis viverra, metus nisl ultricies dui, vitae dapibus ligula urna sit amet nibh. Duis ut venenatis enim.</p>
-        </article>
-    </section>
-    <section id="sectionimgtag">
-        <br>
-        <br>
-        <br>
-        <br>
-    <article id="articleimg">
-         <article id="sec">
-            <h1>Shadan Khan Tellus</h1>
-            <hr style="width:10%">
-            <p>Do Something New..</p>
-            
-    </article>
-        </article>
-        <article id="articleimgs">
-            <img src="images/pic03.jpg" class="images">
-            <img src="images/pic01.jpg" class="images">
-            <img src="images/pic04.jpg" class="images">
-            <img src="images/pic05.jpg" class="images">
-        </article>
-    </section>
-    <section id="sectiontags">
-           <img src="images/pic06.jpg" class="imagess">
-        <div class="imagess color_white"></div>
-        <div class="imagess color_black"></div>
-        <img src="images/pic07.jpg" class="imagess">
-            <img src="images/pic08.jpg" class="imagess">
-        <div class="imagess color_white"></div>
+<html ng-app="myApp">
+    <head>
+          <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Search Details</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css"/>
+        <link rel="stylesheet" type="text/css" href="css/demo.css">
+	<style>
+	.btn-primary{
+	width:100px;
+	height:35px;	
+	}
+	</style>
     
-    </section>
-    <footer id="footer">
-        <nav>
-    <ul>
-        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true" fa-6x></i></a></li>
-         <li><a href="#"><i class="fa fa-instagram" aria-hidden="true" fa-6x></i></a></li>
-         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true" fa-6x></i></a></li>
-         <li><a href="#"><i class="fa fa-envelope-open" aria-hidden="true" fa-6x></i></a></li>
-        </ul>
-        </nav>
-        <h2> &copy 2018 developed and maintained by Shadan Khan.</h2>
-    </footer>
+    <title>Project</title>
+    </head>
+    <body>
+         <div class="container">
+          <hr>
+          <h1 align="center" class="display-4">WELCOME TO THE EMPLOYEES DETAILS PORTAL</h1>
+          <hr>
+        </div>
+	<div class="row">
+    	<div class="container">
+ <div ng-controller="autocompleteController">    		
+    		<div class="col-sm-4">
+                <div>
+                 <img src="https://images.pexels.com/photos/908284/pexels-photo-908284.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="50px" width="250px" />
+                </div>
+   			
+<form class="form-search" ng-submit="myFunc()">    
+        <input type="text" ng-model="selectedNames" placeholder="Search Names" typeahead="myData.DisplayName for myData in myData | filter:$viewValue | limitTo:10" typeahead-min-length='1' typeahead-on-select='onSelectPart($item)'  class="form-control search" style="width:350px;">
+        <i class="icon-search nav-search-icon"></i>	
+                
+			
+			<div class="col-sm-2">
+    			<input type="submit">
+    		</div>
+                </form>
+     </div>			
+			<div class="col-sm-6">
+			<h2>{{selectedNames}}</h2>
+                
+            
+			<table class="table table-striped table-condensed">              
+                <thead>
+                    <tr>
+                        <td>Email</td>
+                        <td>FirstName</td>
+                        <td>HomePhone</td>
+						<td>LastName</td>  
+                        
+                    </tr>
+                </thead>
+              
+                <tbody>
+                    <tr ng-repeat = "s in myData1 | filter:selectedNames">
+                        <td>{{s.Email}}</td>
+                        <td>{{s.FirstName}}</td>
+                        <td>{{s.HomePhone}}</td>
+						<td>{{s.LastName}}</td>    
+                        
+					</tr>
+                      
+                </tbody>
+				</table>
+              
+    			
+    		</div>
+	</div>
+ </div>   	
+    	</div>
+    
+    	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.9.0.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
     </body>
 </html>

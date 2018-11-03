@@ -1,0 +1,20 @@
+body{
+           background: url(https://images.unsplash.com/photo-1531615018523-12556603349f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=976e3aff695b73cff657419ac8e93e44&auto=format&fit=crop&w=753&q=80);
+               background-attachment: fixed;
+           background-size: cover;
+           background-repeat: no-repeat;
+           background-position: top right;
+       }
+  {
+           margin-top: 15px;
+           text-shadow: 2px 2px 3px darkblue;
+           color:darkgrey;
+       }
+       h1:hover{
+           
+           text-shadow: 2px 2px 3px  blue;
+           cursor: pointer;
+       }   
+ .search:hover{
+           box-shadow: 2px 2px 3px  blue;
+       }
